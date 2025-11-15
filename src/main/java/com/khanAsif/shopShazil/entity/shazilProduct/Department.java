@@ -17,7 +17,7 @@ public class Department implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id")
-    private int departmentId;
+    private long id;
    
    @Column(name="department_name")
     private String departmentName;
@@ -26,19 +26,19 @@ public class Department implements Serializable {
    private Set<Section> section = new HashSet();
 
    @Column(name="created_date")
-   @Temporal(jakarta.persistence.TemporalType.DATE)
+   //@Temporal(jakarta.persistence.TemporalType.DATE)
     private Date createdDate;
    
    @Column(name="updated_date")
-   @Temporal(jakarta.persistence.TemporalType.DATE)
+   //@Temporal(jakarta.persistence.TemporalType.DATE)
     private Date updatedDate;
 
-    public int getDepartmentId() {
-        return departmentId;
+    public long getId() {
+        return id;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getDepartmentName() {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form  th:action="@{/product/manage/department/update}" th:object="${department}" method="POST">
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}" />
+            <table  border="1" class = "table table-striped table-responsive-md">
+                <tr>
+                    <td>Enter Department Name</td>
+                    <td><input type="text" th:field="*{departmentName}"  class="form-control "></td>
+                </tr>
+            </table>
+           
+            <button type="submit" class="btn btn-primary col-2">Update Prescription</button>
+        </form>
+    </body>
+</html>

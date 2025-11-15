@@ -17,7 +17,7 @@ public class Section implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "section_name")
     private String sectionName;
@@ -37,11 +37,11 @@ public class Section implements Serializable {
     @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
     private Set<Category> category = new HashSet();
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

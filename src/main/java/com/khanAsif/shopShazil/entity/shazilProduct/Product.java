@@ -19,8 +19,9 @@ public class Product implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id")
-    private long productId;
-   
+    private long id;   
+
+
    @Column(name = "product_name")
     private String productName;
    
@@ -65,13 +66,15 @@ public class Product implements Serializable {
     @Column(name="updated_date")
     @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date updatedDate;
+   
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     
-    public long getProductId() {
-        return productId;
-    }
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
     public String getProductName() {
         return productName;
     }
