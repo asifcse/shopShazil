@@ -20,7 +20,7 @@
                     
                 </div>
                 <div class="col-md-10">
-                    <form  th:action="@{/product/manage/department/update}" th:object="${department}" method="POST">
+                    <form  th:action="@{/department/manage/update}" th:object="${department}" method="POST">
                         <!-- Add hidden form field to handle update -->
                         <input type="hidden" th:field="*{id}" />
                         <table  border="1" class = "table table-striped table-responsive-md">
