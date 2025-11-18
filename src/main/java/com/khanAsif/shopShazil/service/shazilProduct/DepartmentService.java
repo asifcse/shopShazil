@@ -6,6 +6,7 @@ package com.khanAsif.shopShazil.service.shazilProduct;
  */
 
 import com.khanAsif.shopShazil.entity.shazilProduct.Department;
+import java.util.Date;
 import java.util.List;
 
 public interface DepartmentService {

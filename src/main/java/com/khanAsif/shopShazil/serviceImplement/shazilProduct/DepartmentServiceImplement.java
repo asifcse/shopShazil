@@ -9,6 +9,7 @@ package com.khanAsif.shopShazil.serviceImplement.shazilProduct;
 import com.khanAsif.shopShazil.entity.shazilProduct.Department;
 import com.khanAsif.shopShazil.repository.shazilProduct.DepartmentRepository;
 import com.khanAsif.shopShazil.service.shazilProduct.DepartmentService;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +47,5 @@ public class DepartmentServiceImplement implements DepartmentService {
     public void deleteViaId(long id) {
         departmentRepository.deleteById(id);
     }
+
 }

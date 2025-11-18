@@ -26,11 +26,11 @@ public class Department implements Serializable {
    private Set<Section> section = new HashSet();
 
    @Column(name="created_date")
-   //@Temporal(jakarta.persistence.TemporalType.DATE)
+   @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date createdDate;
    
    @Column(name="updated_date")
-   //@Temporal(jakarta.persistence.TemporalType.DATE)
+   @Temporal(jakarta.persistence.TemporalType.DATE)
     private Date updatedDate;
 
     public long getId() {

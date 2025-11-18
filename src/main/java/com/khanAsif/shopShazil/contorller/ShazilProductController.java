@@ -12,7 +12,6 @@ import com.khanAsif.shopShazil.serviceImplement.shazilProduct.DepartmentServiceI
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.ProductDescriptionServiceImplment;
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.ProductServiceImplement;
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.SectionServiceImplement;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,8 +33,8 @@ public class ShazilProductController {
      
     @GetMapping("/index")
     public String listOfProductInSazilShop(Model model){
-        model.addAttribute("allProducts", productServiceImplement.getAllProduct());
-        return "all-products";
+      //  model.addAttribute("allProducts", productServiceImplement.getAllProduct());
+        return "adminProductIndex";
     }
     
     @GetMapping("/manage/departmentList")
@@ -76,8 +75,10 @@ public class ShazilProductController {
     
     @PostMapping("/manage/department/update")
     public String updateDepartmentSave(@ModelAttribute("department") Department department) {
+       
         Department department2 = departmentServiceImplement.getById(department.getId());
         department.setCreatedDate(department2.getCreatedDate());
+
         department.setUpdatedDate(new Date());
         departmentServiceImplement.save(department);
      
@@ -90,4 +91,5 @@ public class ShazilProductController {
         departmentServiceImplement.deleteViaId(id);
         return "redirect:/product/manage/departmentList";
     }
+    
 }

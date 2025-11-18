@@ -1,0 +1,17 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "bootstrap"
+  ],
+  "author": "asifkhan",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}

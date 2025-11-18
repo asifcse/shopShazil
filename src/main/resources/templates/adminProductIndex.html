@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Shazil Shop</title>
+        <link th:href="@{/node_modules/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div th:replace="~{fragments/navbar :: navbar}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div th:replace="fragments/department-menu :: department-menu">
+                </div>
+                <div class="col-md-10"></div>
+            </div>
+        </div>
+        <script th:src="@{/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+        
+    </body>
+</html>
