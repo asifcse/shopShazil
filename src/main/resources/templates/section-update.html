@@ -9,27 +9,38 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div th:replace="~{fragments/navbar :: navbar}">
+                <div th:replace="fragments/navbar :: navbar">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    <div th:replace="fragments/department-menu :: department-menu">
+                    <div th:replace="fragments/side-bar :: side-bar">
                         
                     </div>
                     
                 </div>
                 <div class="col-md-10">
-                    <form  th:action="@{/department/manage/update}" th:object="${department}" method="POST">
+                    <form  th:action="@{/section/manage/update}" th:object="${section}" method="POST">
                         <!-- Add hidden form field to handle update -->
                         <input type="hidden" th:field="*{id}" />
                         <table  border="1" class = "table table-striped table-responsive-md">
                             <tr>
-                                <td>Enter Department Name</td>
-                                <td><input type="text" th:field="*{departmentName}"  class="form-control "></td>
+                                <td>Enter Section Name</td>
+                                <td><input type="text" th:field="*{sectionName}"  class="form-control "></td>
                             </tr>
+                           <tr>
+                                <td>Select Department</td>
+                                <td>
+                                    <select th:field="*{department}"  class="form-control" >
+                                        <option value="" >Select</option>
+                                        <option th:each="item : ${departmentList}" th:text="${item.departmentName}" th:value="${item.id}">
+
+                                        </option>
+                                    </select >  
+                                </td>
+                            </tr>                 
                         </table>
-                        <button type="submit" class="btn btn-primary col-2">Update Prescription</button>
+                        <button type="submit" class="btn btn-primary col-2">Update Section</button>
                     </form>	               
                 </div>
             </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Shazil Shop</title>
+        <link th:href="@{/node_modules/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div th:replace="fragments/navbar :: navbar">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div th:replace="fragments/side-bar :: side-bar">
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-md-10">
+                    <form  th:action="@{/department/manage/save}" th:object="${department}" method="POST">
+                        <table border="1" class = "table table-striped table-responsive-md">
+                            <tr>
+                                <td>Enter Department Name</td>
+                                <td><input type="text" th:field="*{departmentName}"  class="form-control "></td>
+
+                            </tr>
+                            <tr >
+                                <td></td><td><button class="btn btn-primary" type="submit" >Save Department</button></td>
+                            </tr>
+                        </table>
+
+                    </form> 	               
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+        
+    </body>
+</html>
