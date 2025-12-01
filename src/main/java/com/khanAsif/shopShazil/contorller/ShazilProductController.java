@@ -5,6 +5,7 @@ package com.khanAsif.shopShazil.contorller;
  * @author Asif khan <asif.cse12@gmail.com>
  */
 
+import com.khanAsif.shopShazil.entity.shazilProduct.Category;
 import com.khanAsif.shopShazil.entity.shazilProduct.Department;
 import com.khanAsif.shopShazil.entity.shazilProduct.Product;
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.CategoryServiceImplement;
@@ -13,6 +14,7 @@ import com.khanAsif.shopShazil.serviceImplement.shazilProduct.ProductDescription
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.ProductServiceImplement;
 import com.khanAsif.shopShazil.serviceImplement.shazilProduct.SectionServiceImplement;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +27,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/product/manage")
 public class ShazilProductController {
-     @Autowired private ProductServiceImplement productServiceImplement;
     
-     
+    @Autowired private ProductServiceImplement productServiceImplement;
+    @Autowired private CategoryServiceImplement categoryServiceImplement;
     
+    @GetMapping("/list")
+    public String categoryList(Model model){
+    
+        model.addAttribute("productList",productServiceImplement.getAllProduct());
+        return "product_list";
+    }    
+    
+    @GetMapping("/create")
+    public String addProductForm(Model model) {
+
+        Product product = new Product();
+        List<Category> categoryList = categoryServiceImplement.getAllCategory();
+        model.addAttribute("product", product);
+        model.addAttribute("categoryList", categoryList);
+        return "product_create";
+    }     
+
+    @PostMapping("/save")
+    public String productFormSave(@ModelAttribute("product") Product product) {
+        
+        Date now = new Date();
+        product.setCreatedDate(now);
+        productServiceImplement.save(product);
+        return "redirect:/product/manage/list";
+    }    
     
 }

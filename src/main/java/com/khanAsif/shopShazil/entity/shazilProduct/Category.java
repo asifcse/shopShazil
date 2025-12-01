@@ -23,7 +23,7 @@ public class Category implements Serializable {
    
 
     @Column(name="category_name")
-     private String categoryName;
+    private String categoryName;
 
     @Column(name="remarks")
      private String remarks; 

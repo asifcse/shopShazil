@@ -27,7 +27,7 @@ public class ShazilDepartmentController {
     public String departmentList(Model model){
     
         model.addAttribute("departmentList",departmentServiceImplement.getAllDepartment());
-        return "department-list";
+        return "department_list";
     }
     
     @GetMapping("/create")
@@ -36,7 +36,7 @@ public class ShazilDepartmentController {
         Department department = new Department();
         model.addAttribute("department", department);
         
-        return "department-create";
+        return "department_create";
     }
     
     @PostMapping("/save")
@@ -53,7 +53,7 @@ public class ShazilDepartmentController {
         Department department = departmentServiceImplement.getById(id);
 
         model.addAttribute("department", department);
-        return "department-update";
+        return "department_update";
     }
     
     @PostMapping("/update")

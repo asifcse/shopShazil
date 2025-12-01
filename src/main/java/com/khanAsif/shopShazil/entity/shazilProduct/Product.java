@@ -20,16 +20,15 @@ public class Product implements Serializable {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id")
     private long id;   
-
-
+   
    @Column(name = "product_name")
     private String productName;
    
    @Column(name = "product_stock")
     private int productStock;
    
-   @Column(name = "product_price_bying_per_unit")
-    private double productByingPricePerUnit;
+   @Column(name = "product_price_buying_per_unit")
+    private double productPriceBuyingPerUnit;
    
    @Column(name="product_price_selling_per_unit")
     private double productSellingPricePerUnit;
@@ -37,12 +36,12 @@ public class Product implements Serializable {
    @Column(name="product_img_url_one")
     private String productImgeUrlOne;
    
-   @Column(name="product_menufacture_company")
-    private String productMenufactureName;
+   @Column(name="product_manufacturer_company_name")
+    private String productManufacturerCompanyName;
    
-    @Column(name="product_menufacture_date")
+    @Column(name="product_manufacturer_date")
     @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date productMenufactureDate;
+    private Date productManufacturerDate;
     
     @Column(name="product_expier_date")
     @Temporal(jakarta.persistence.TemporalType.DATE)
@@ -87,12 +86,6 @@ public class Product implements Serializable {
     public void setProductStock(int productStock) {
         this.productStock = productStock;
     }
-    public double getProductByingPricePerUnit() {
-        return productByingPricePerUnit;
-    }
-    public void setProductByingPricePerUnit(double productByingPricePerUnit) {
-        this.productByingPricePerUnit = productByingPricePerUnit;
-    }
     public double getProductSellingPricePerUnit() {
         return productSellingPricePerUnit;
     }
@@ -105,12 +98,6 @@ public class Product implements Serializable {
     public void setProductImgeUrlOne(String productImgeUrlOne) {
         this.productImgeUrlOne = productImgeUrlOne;
     }
-    public Date getProductMenufactureDate() {
-        return productMenufactureDate;
-    }
-    public void setProductMenufactureDate(Date productMenufactureDate) {
-        this.productMenufactureDate = productMenufactureDate;
-    }
     public Date getProductExpierDate() {
         return productExpierDate;
     }
@@ -122,12 +109,6 @@ public class Product implements Serializable {
     }
     public void setRemarks(String remarks) {
         this.remarks = remarks;
-    }
-    public String getProductMenufactureName() {
-        return productMenufactureName;
-    }
-    public void setProductMenufactureName(String productMenufactureName) {
-        this.productMenufactureName = productMenufactureName;
     }
     public Date getCreatedDate() {
         return createdDate;
@@ -152,6 +133,30 @@ public class Product implements Serializable {
     }
     public void setProductDescription(ProductDescription productDescription) {
         this.productDescription = productDescription;
+    }
+    
+    public double getProductPriceBuyingPerUnit() {
+       return productPriceBuyingPerUnit;
+    }
+
+    public void setProductPriceBuyingPerUnit(double productPriceBuyingPerUnit) {
+        this.productPriceBuyingPerUnit = productPriceBuyingPerUnit;
+    }
+
+    public String getProductManufacturerCompanyName() {
+        return productManufacturerCompanyName;
+    }
+
+    public void setProductManufacturerCompanyName(String productManufacturerCompanyName) {
+        this.productManufacturerCompanyName = productManufacturerCompanyName;
+    }
+
+    public Date getProductManufacturerDate() {
+        return productManufacturerDate;
+    }
+
+    public void setProductManufacturerDate(Date productManufacturerDate) {
+        this.productManufacturerDate = productManufacturerDate;
     }
     
     

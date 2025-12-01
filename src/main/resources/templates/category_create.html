@@ -14,21 +14,30 @@
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    <div th:replace="fragments/side-bar :: side-bar">
+                    <div th:replace="fragments/side_bar :: side_bar">
                         
                     </div>
                     
                 </div>
                 <div class="col-md-10">
-                    <form  th:action="@{/department/manage/save}" th:object="${department}" method="POST">
+                    <form  th:action="@{/category/manage/save}" th:object="${category}" method="POST">
                         <table border="1" class = "table table-striped table-responsive-md">
                             <tr>
-                                <td>Enter Department Name</td>
-                                <td><input type="text" th:field="*{departmentName}"  class="form-control "></td>
+                                <td>Enter Category Name</td>
+                                <td><input type="text" th:field="*{categoryName}"  class="form-control "></td>
 
                             </tr>
+                            <tr>
+                                <td>Select Section</td>
+                                <td>
+                                    <select th:field="*{section}"  class="form-control" >
+                                        <option value="" >Select</option>>
+                                        <option th:each="item : ${sectionList}" th:text="${item.sectionName}" th:value="${item.id}"></option>
+                                    </select >  
+                                </td>
+                            </tr>            
                             <tr >
-                                <td></td><td><button class="btn btn-primary" type="submit" >Save Department</button></td>
+                                <td></td><td><button class="btn btn-primary" type="submit" >Save Section</button></td>
                             </tr>
                         </table>
 

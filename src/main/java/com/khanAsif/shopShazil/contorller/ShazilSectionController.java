@@ -31,7 +31,7 @@ public class ShazilSectionController {
     public String sectionList(Model model){
     
         model.addAttribute("sectionList",sectionServiceImplement.getAllSection());
-        return "section-list";
+        return "section_list";
     }
     
     @GetMapping("/create")
@@ -41,7 +41,7 @@ public class ShazilSectionController {
         List<Department> departmentList = departmentServiceImplement.getAllDepartment();
         model.addAttribute("section", section);
         model.addAttribute("departmentList", departmentList);
-        return "section-create";
+        return "section_create";
     }
     
     @PostMapping("/save")
@@ -60,7 +60,7 @@ public class ShazilSectionController {
         List<Department> departmentList = departmentServiceImplement.getAllDepartment();
          model.addAttribute("departmentList", departmentList);
         model.addAttribute("section", section);
-        return "section-update";
+        return "section_update";
     }
     
     @PostMapping("/update")
@@ -76,10 +76,10 @@ public class ShazilSectionController {
     }    
     
     @GetMapping("/delete/{id}")
-    public String deleteDepartmentThroughId(@PathVariable(value = "id") long id) {
+    public String deleteSectionThroughId(@PathVariable(value = "id") long id) {
 
         
         sectionServiceImplement.deleteViaId(id);
-        return "redirect:/department/manage/list";
+        return "redirect:/section/manage/list";
     }    
 }
