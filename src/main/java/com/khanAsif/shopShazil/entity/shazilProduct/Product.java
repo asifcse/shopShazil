@@ -40,12 +40,11 @@ public class Product implements Serializable {
     private String productManufacturerCompanyName;
    
     @Column(name="product_manufacturer_date")
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date productManufacturerDate;
     
-    @Column(name="product_expier_date")
-    @Temporal(jakarta.persistence.TemporalType.DATE)
-    private Date productExpierDate;
+    private String productManufacturerDate;
+
+    @Column(name="product_expiry_date")
+    private String productExpiryDate;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
@@ -98,12 +97,6 @@ public class Product implements Serializable {
     public void setProductImgeUrlOne(String productImgeUrlOne) {
         this.productImgeUrlOne = productImgeUrlOne;
     }
-    public Date getProductExpierDate() {
-        return productExpierDate;
-    }
-    public void setProductExpierDate(Date productExpierDate) {
-        this.productExpierDate = productExpierDate;
-    }
     public String getRemarks() {
         return remarks;
     }
@@ -151,13 +144,19 @@ public class Product implements Serializable {
         this.productManufacturerCompanyName = productManufacturerCompanyName;
     }
 
-    public Date getProductManufacturerDate() {
+    public String getProductManufacturerDate() {
         return productManufacturerDate;
     }
 
-    public void setProductManufacturerDate(Date productManufacturerDate) {
+    public void setProductManufacturerDate(String productManufacturerDate) {
         this.productManufacturerDate = productManufacturerDate;
     }
-    
+    public String getProductExpiryDate() {
+        return productExpiryDate;
+    }
+
+    public void setProductExpiryDate(String productExpiryDate) {
+        this.productExpiryDate = productExpiryDate;
+    }
     
 }
