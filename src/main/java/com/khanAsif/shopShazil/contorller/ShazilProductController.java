@@ -56,5 +56,33 @@ public class ShazilProductController {
         productServiceImplement.save(product);
         return "redirect:/product/manage/list";
     }    
+    @GetMapping("/update/{id}")
+    public String updateProductForm(@PathVariable(value = "id") long id, Model model) {
+        Product product = productServiceImplement.getById(id);
+        List<Category> categoryList = categoryServiceImplement.getAllCategory();
+         model.addAttribute("categoryList", categoryList);
+        model.addAttribute("product", product);
+        
+        return "product_update";
+    }
     
+    @PostMapping("/update")
+    public String updateProductSave(@ModelAttribute("product") Product product) {
+       
+        Product product2 =productServiceImplement.getById(product.getId());
+        product.setCreatedDate(product2.getCreatedDate());
+
+        product.setUpdatedDate(new Date());
+        productServiceImplement.save(product);
+     
+        return "redirect:/product/manage/list";
+    }    
+    
+    @GetMapping("/delete/{id}")
+    public String deleteProductThroughId(@PathVariable(value = "id") long id) {
+
+        
+        productServiceImplement.deleteViaId(id);
+        return "redirect:/category/manage/list";
+    }
 }

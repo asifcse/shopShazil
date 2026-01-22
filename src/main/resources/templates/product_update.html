@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Shazil Shop</title>
+        <link th:href="@{/node_modules/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div th:replace="fragments/navbar :: navbar">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div th:replace="fragments/side_bar :: side_bar">
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-md-10">
+                    <form  th:action="@{/product/manage/update}" th:object="${product}" method="POST">
+                        <!-- Add hidden form field to handle update -->
+                        <input type="hidden" th:field="*{id}" />
+                        <table  border="1" class = "table table-striped table-responsive-md">
+                            <tr>
+                                <td>Enter Product Name</td>
+                                <td><input type="text" th:field="*{productName}"  class="form-control "></td>
+                            </tr>
+                           <tr>
+                                <td>Select Category</td>
+                                <td>
+                                    <select th:field="*{category}"  class="form-control" >
+                                        <option value="" >Select</option>
+                                        <option th:each="item : ${categoryList}" th:text="${item.categoryName}" th:value="${item.id}">
+
+                                        </option>
+                                    </select >  
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td>Enter Product Stock</td>
+                                <td><input type="text" th:field="*{productStock}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Product Price Buying Per Unit</td>
+                                <td><input type="text" th:field="*{productPriceBuyingPerUnit}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Product Selling Price Per Unit</td>
+                                <td><input type="text" th:field="*{productSellingPricePerUnit}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Product Imge Url One</td>
+                                <td><input type="text" th:field="*{productImgeUrlOne}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Product Manufacturer Company Name</td>
+                                <td><input type="text" th:field="*{productManufacturerCompanyName}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter product Manufacturer Date</td>
+                                <td><input type="text" th:field="*{productManufacturerDate}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Product Expiry Date </td>
+                                <td><input type="text" th:field="*{productExpiryDate}"  class="form-control "></td>
+                            </tr>
+                            <tr>
+                                <td>Enter remarks </td>
+                                <td><input type="text" th:field="*{remarks}"  class="form-control "></td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary col-2">Update Category</button>
+                    </form>	               
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+        
+    </body>
+</html>
